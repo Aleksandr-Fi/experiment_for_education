@@ -4,6 +4,9 @@ function wrapInParagraph(str) {
     for (i = 0; i < arr.length; i++) {
         sum += `<p>${arr[i]}</p>\n`
     }
+
+    console.log(sum.substr(0, sum.length - 3));
+
     return sum
 }
 
