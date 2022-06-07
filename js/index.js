@@ -222,7 +222,7 @@
 // console.log(Boolean(value));
 // console.log(typeof true);
 
-// const once = fn => { 
+// const once = fn => {
 //     //code here
 //     let fun = fn();
 //     return () => fun;
@@ -390,7 +390,7 @@
 //         if (arr.some(el => el == false)) {
 //             console.log('елементы не равны');
 //             return false
-//         } 
+//         }
 //         console.log('елементы равны');
 //         return true
 //     };
@@ -434,7 +434,7 @@
 //             console.log('итог ' + checkEl(keys1, obj1, obj2));
 //             console.log('El не равны');
 //             return false
-//         } 
+//         }
 //             console.log('итог ' + checkEl(keys1, obj1, obj2));
 //             console.log('иначе');
 //             return true
@@ -535,9 +535,9 @@
 // const result = getLanguagesStatistic(data);
 
 // console.log(result);
-// { 
-//   C: 1, 
-//   JavaScript: 2 
+// {
+//   C: 1,
+//   JavaScript: 2
 // }
 // console.log(Boolean(undefined));
 // ------------------------------------------
@@ -762,9 +762,9 @@
 //         this.lastName = lastName
 //         this.bithd = new Date(bithd)
 //     }
-//     get fullName() { 
+//     get fullName() {
 //         return `${this.firstName} ${this.lastName}`
-//     } 
+//     }
 //     getAge() {
 //         let data = new Date('2019-05-23')
 //         let res = Math.floor((data.getTime() - this.bithd.getTime())/1000/3600/24/366)
@@ -967,7 +967,7 @@
 //   const getData = (key, maxRequestsNumber) => {
 //           throw new TemporaryError(e)
 //   };
-// const res = getRepeatableData(getData, '1', 3); 
+// const res = getRepeatableData(getData, '1', 3);
 // console.log(res); // 'hello1'
 
 // =================================================================================
@@ -1116,7 +1116,7 @@
 //   let res = []
   
 //   const makeUserInfo = (arr) => {
-//       if (arr.length !== 0) { 
+//       if (arr.length !== 0) {
 //           getUsersIds(arr.shift(), (userInfo) => {
 //               res.push(userInfo)
 //               if (arr.length !== 0) {
@@ -1337,27 +1337,43 @@
 
 // -----------
 
-const throttle = (fn, throttleTime) => {
-    let waiting = false
-    return function(...args) {
-        if (waiting) {
-            return
-        }
+// const throttle = (fn, throttleTime) => {
+//     let waiting = false
+//     return function(...args) {
+//         if (waiting) {
+//             return
+//         }
         
-        fn.apply(this, args)
+//         fn.apply(this, args)
         
-        waiting = true
-        setTimeout(() => waiting = false, throttleTime)
-    }
-};
-let counter = 0;
-const fn = () => {
-  counter++;
-};
-const throttledFn = throttle(fn, 500); // функция может быть вызвана не чаще, чем раз в 500 мс
+//         waiting = true
+//         setTimeout(() => waiting = false, throttleTime)
+//     }
+// };
+// let counter = 0;
+// const fn = () => {
+//   counter++;
+// };
+// const throttledFn = throttle(fn, 500); // функция может быть вызвана не чаще, чем раз в 500 мс
 
-const intervalId = setInterval(throttledFn, 100);
-setTimeout(() => clearInterval(intervalId), 1000); // удаляем интервал через 10 вызовов
+// const intervalId = setInterval(throttledFn, 100);
+// setTimeout(() => clearInterval(intervalId), 1000); // удаляем интервал через 10 вызовов
 
-console.log(counter); // 3
+// console.log(counter); // 3
 // -----------------------------------------------------------------------------------------------------------------
+
+const numStr = (srt) => {
+    const strArr = str.split("")
+    
+    let strNumbers = {}
+    
+    strArr.forEach((el, i) => {
+        if (strNumbers[i - 1] === el) {
+            strNumbers[el] = 1
+        }
+    });
+
+    return strNumbers
+}
+
+console.log(numStr("AAADDDGFFFAAR"));
